@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import QrcodeVue from 'qrcode.vue'
 defineProps<{
   name?: string
   avatar?: string
 }>()
+
+const passId = 'EK2023091200010000'
+const qrcode =
+  '0c9a9274b6c561ead95159fc8af3c197ac0aa8b2970bb2099ec9b885aa0034bc'
 </script>
 
 <template>
@@ -51,12 +56,21 @@ defineProps<{
           </div>
 
           <span text-xs font-bold text="left gray/70">PASS ID</span>
-          <span mb2 text-sm>EK2023091200010000</span>
+          <span mb2 text-sm>{{ passId }}</span>
         </div>
         <div h-20 w-20>
           <img v-if="avatar" :src="avatar" alt="Avatar" w-20 rounded />
         </div>
       </div>
+      <QrcodeVue
+        :value="qrcode"
+        :size="150"
+        :margin="3"
+        render-as="svg"
+        level="L"
+        ma
+        rounded
+      />
     </div>
   </div>
 </template>
