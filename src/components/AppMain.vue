@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { type FileWithHandle } from 'browser-fs-access'
 
-const router = useRouter()
-
 const name = ref('')
 const avatar = ref<FileWithHandle>()
 
@@ -11,13 +9,13 @@ const disabled = computed(() => !name.value || !avatar.value)
 async function go() {
   if (disabled.value) return
 
-  router.push({
-    name: 'birdpass',
-    query: {
-      name: name.value,
-      avatar: await fileToDataUrl(avatar.value!),
-    },
+  // eslint-disable-next-line no-console
+  console.log({
+    name: name.value,
+    avatar: await fileToDataUrl(avatar.value!),
   })
+  // eslint-disable-next-line no-alert
+  alert('WIP!')
 }
 </script>
 

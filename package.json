@@ -12,8 +12,7 @@
   "dependencies": {
     "@vueuse/core": "^10.1.2",
     "browser-fs-access": "^0.34.1",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.2"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.17",

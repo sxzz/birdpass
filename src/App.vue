@@ -6,7 +6,7 @@
     flex-1
     font-sans
   >
-    <RouterView />
+    <AppMain />
   </main>
   <TheFooter />
 </template>
