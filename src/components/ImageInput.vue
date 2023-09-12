@@ -4,8 +4,9 @@ import { type FileWithHandle, fileOpen } from 'browser-fs-access'
 const file = defineModel<FileWithHandle | null>({
   local: true,
 })
-
-const previewImage = ref('')
+const previewImage = defineModel<string>('preview', {
+  local: true,
+})
 
 async function pickImage() {
   file.value = await fileOpen({
@@ -59,7 +60,7 @@ watch(file, async (image, _, onCleanup) => {
       text-white
       hover="bg-black/40 text-primary"
     >
-      <span i-carbon:upload block />
+      <span i-ri:upload-2-line block />
     </span>
   </label>
 </template>

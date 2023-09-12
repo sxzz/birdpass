@@ -52,11 +52,11 @@ function toggleDark(event?: MouseEvent) {
   <div flex="~ col gap-2" w-full items-center p6>
     <nav flex gap-2 text-xl>
       <button icon-btn @click="toggleDark">
-        <div i-carbon-sun dark:i-carbon-moon />
+        <div i-ri:sun-line dark:i-ri:moon-line />
       </button>
 
       <a
-        i-carbon-logo-github
+        i-ri:github-line
         icon-btn
         rel="noreferrer"
         href="https://github.com/sxzz/birdpass"
@@ -67,7 +67,7 @@ function toggleDark(event?: MouseEvent) {
 
     <div op-50>
       Made with
-      <div i-carbon:favorite-filled inline-block vertical-middle text-pink />
+      <div i-ri:heart-3-fill inline-block vertical-middle text-pink />
       by
       <a href="https://github.com/sxzz" target="_blank">三咲智子</a> &
       <a href="https://github.com/Lakr233" target="_blank">Lakr</a>

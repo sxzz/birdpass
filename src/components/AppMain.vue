@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { type FileWithHandle } from 'browser-fs-access'
 
-const name = ref('')
+const name = useLocalStorage('name', '')
 const avatar = ref<FileWithHandle>()
+const previewAvatar = ref<string>()
 
 const disabled = computed(() => !name.value || !avatar.value)
 
-async function go() {
+async function mint() {
   if (disabled.value) return
 
   // eslint-disable-next-line no-console
@@ -33,12 +34,14 @@ async function go() {
 
     <div py-4 />
 
-    <div flex="~ col gap6" items-center>
-      <ImageInput v-model="avatar" />
+    <div flex="~ col gap6" mb4 items-center>
+      <ImageInput v-model="avatar" v-model:preview="previewAvatar" />
       <TextInput v-model="name" placeholder="What's your username?" />
-      <button class="text-lg btn" :disabled="disabled" @click="go">
-        Generate
+      <button class="text-lg btn" :disabled="disabled" @click="mint">
+        Mint
       </button>
     </div>
+
+    <TicketPreview :name="name" :avatar="previewAvatar" />
   </div>
 </template>
