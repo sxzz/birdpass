@@ -49,7 +49,7 @@ function toggleDark(event?: MouseEvent) {
 </script>
 
 <template>
-  <div flex="~ col gap-2" w-full items-center p6>
+  <div flex="~ col gap-2" font-comfortaa w-full items-center p6>
     <nav flex gap-2 text-xl>
       <button icon-btn @click="toggleDark">
         <div i-ri:sun-line dark:i-ri:moon-line />

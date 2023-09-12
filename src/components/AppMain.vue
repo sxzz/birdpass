@@ -38,22 +38,26 @@ async function mint() {
 </script>
 
 <template>
-  <div>
-    <div i-carbon-ticket inline-block text-4xl />
-    <p>
-      <a rel="noreferrer" href="https://birdpass.sxzz.moe" target="_blank">
+  <div font-comfortaa>
+    <div flex items-center justify-between>
+      <a
+        rel="noreferrer"
+        href="https://birdpass.sxzz.moe"
+        target="_blank"
+        text-xl
+        font-bold
+      >
         BirdPass
       </a>
-    </p>
-    <p>
-      <em text-sm op75>Get your BirdPass ticket!</em>
-    </p>
+      <div i-carbon-ticket inline-block text-4xl />
+    </div>
 
     <div py-4 />
 
     <div flex="~ col gap6" mb4 items-center>
       <ImageInput v-model="avatar" v-model:preview="previewAvatar" />
       <TextInput v-model="name" placeholder="What's your username?" />
+      <p op75>ℹ️ Support Safari on iOS only</p>
       <button
         flex
         items-center
@@ -70,7 +74,6 @@ async function mint() {
         Mint
       </button>
     </div>
-
-    <TicketPreview :name="name" :avatar="previewAvatar" />
   </div>
+  <TicketPreview :name="name" :avatar="previewAvatar" />
 </template>

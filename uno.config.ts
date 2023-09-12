@@ -1,4 +1,10 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
+import {
+  defineConfig,
+  presetAttributify,
+  presetIcons,
+  presetUno,
+  presetWebFonts,
+} from 'unocss'
 
 export default defineConfig({
   shortcuts: [
@@ -17,6 +23,11 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
       warn: true,
+    }),
+    presetWebFonts({
+      fonts: {
+        comfortaa: 'Comfortaa',
+      },
     }),
   ],
 })

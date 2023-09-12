@@ -62,7 +62,7 @@ const qrcode =
           <span mb2 text-sm>{{ passId }}</span>
         </div>
         <div h-20 w-20>
-          <img v-if="avatar" :src="avatar" alt="Avatar" w-20 rounded />
+          <img v-if="avatar" :src="avatar" alt="Avatar" w-20 rounded-2 />
         </div>
       </div>
       <QrcodeVue

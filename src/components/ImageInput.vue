@@ -39,7 +39,7 @@ watch(file, async (image, _, onCleanup) => {
     items-center
     justify-center
     of-hidden
-    rounded-full
+    rounded-2
     border="gray/20 2"
     w="sm:30 24"
     h="sm:30 24"
@@ -55,7 +55,7 @@ watch(file, async (image, _, onCleanup) => {
       flex
       items-center
       justify-center
-      rounded-full
+      rounded-2
       text-xl
       text-white
       hover="bg-black/40 text-primary"
