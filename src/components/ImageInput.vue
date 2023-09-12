@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import { type FileWithHandle, fileOpen } from 'browser-fs-access'
 
-const emit = defineEmits<{
-  (event: 'pick', value: FileWithHandle): void
-}>()
-
 const file = defineModel<FileWithHandle | null>({
   local: true,
 })
@@ -12,15 +8,13 @@ const file = defineModel<FileWithHandle | null>({
 const previewImage = ref('')
 
 async function pickImage() {
-  const image = await fileOpen({
+  file.value = await fileOpen({
     description: 'Image',
     mimeTypes: ['image/*'],
   })
-  file.value = image
-  emit('pick', file.value)
 }
 
-watch(file, (image, _, onCleanup) => {
+watch(file, async (image, _, onCleanup) => {
   let expired = false
   onCleanup(() => (expired = true))
 
@@ -28,12 +22,10 @@ watch(file, (image, _, onCleanup) => {
     previewImage.value = ''
     return
   }
-  const reader = new FileReader()
-  reader.readAsDataURL(image)
-  reader.addEventListener('load', (evt) => {
-    if (expired) return
-    previewImage.value = evt.target?.result as string
-  })
+
+  const result = await fileToDataUrl(image)
+  if (expired) return
+  previewImage.value = result
 })
 </script>
 
