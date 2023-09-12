@@ -13,7 +13,8 @@ async function mint() {
 
   loading.value = true
   try {
-    const image = (await fileToDataUrl(avatar.value!)).slice(
+    const compressed = await compressImage(avatar.value!)
+    const image = (await fileToDataUrl(compressed)).slice(
       'data:image/jpeg;base64,'.length
     )
     const res = await fetch('https://birdpass.qaq.wiki/sign', {
