@@ -35,7 +35,7 @@ async function mint() {
     saveAs(pass, 'birdpass.pkpass')
   } catch {
     // eslint-disable-next-line no-alert
-    alert('Failed to mint ticket')
+    alert('Failed to claim ticket. Try to change your avatar and claim again.')
   } finally {
     loading.value = false
   }
