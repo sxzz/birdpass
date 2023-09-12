@@ -18,7 +18,7 @@ defineProps<{
       w-78
       overflow-hidden
       rounded
-      p3
+      p4
     >
       <div
         dark:bg="#121212"
