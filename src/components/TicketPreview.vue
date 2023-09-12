@@ -97,7 +97,7 @@ function togglePreview(v: boolean) {
       />
     </div>
     <button v-show="!showPreviewOnly" mt4 btn @click="togglePreview(true)">
-      Show preview only
+      Show Ticket
     </button>
   </OnClickOutside>
 </template>
