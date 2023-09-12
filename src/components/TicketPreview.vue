@@ -12,7 +12,6 @@ const qrcode =
 
 <template>
   <div>
-    <h3 mb2 text-lg font-bold>Preview</h3>
     <div
       bg="#1b2029"
       flex="~ col"
@@ -37,7 +36,11 @@ const qrcode =
         rounded-b-full
         bg-white
       />
-      <div i-ri:apple-fill mb5 text-3xl text-white />
+      <div flex justify-between>
+        <div i-ri:apple-fill mb5 text-3xl text-white />
+        <h3 mb2 text="xs gray" font-bold>Preview</h3>
+      </div>
+
       <div flex justify-between>
         <div flex="~ col">
           <span text-xs font-bold text="left gray/70">BIRLAND EVENT</span>
@@ -46,7 +49,7 @@ const qrcode =
           <div mb4 flex justify-between>
             <div flex="~ col">
               <span text-xs font-bold text="gray/70">NAME</span>
-              <span text-sm>{{ name }}</span>
+              <span text-sm>{{ name || 'Tim Cook' }}</span>
             </div>
 
             <div flex="~ col">
