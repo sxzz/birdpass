@@ -2,6 +2,7 @@
   "private": true,
   "packageManager": "pnpm@8.7.5",
   "type": "module",
+  "license": "AGPL-3.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite",

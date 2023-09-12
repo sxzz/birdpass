@@ -69,7 +69,8 @@ function toggleDark(event?: MouseEvent) {
       Made with
       <div i-carbon:favorite-filled inline-block vertical-middle text-pink />
       by
-      <a href="https://github.com/sxzz" target="_blank">三咲智子</a>
+      <a href="https://github.com/sxzz" target="_blank">三咲智子</a> &
+      <a href="https://github.com/Lakr233" target="_blank">Lakr</a>
     </div>
   </div>
 </template>
