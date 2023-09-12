@@ -35,22 +35,22 @@ defineProps<{
       <div i-ri:apple-fill mb5 text-3xl text-white />
       <div flex justify-between>
         <div flex="~ col">
-          <span text-xs font-extrabold text="left gray/70">BIRLAND EVENT</span>
+          <span text-xs font-bold text="left gray/70">BIRLAND EVENT</span>
           <span mb4 text-lg>Apple Fall Event 2023</span>
 
           <div mb4 flex justify-between>
             <div flex="~ col">
-              <span text-xs font-extrabold text=" gray/70">NAME</span>
+              <span text-xs font-bold text="gray/70">NAME</span>
               <span text-sm>{{ name }}</span>
             </div>
 
             <div flex="~ col">
-              <span text-xs font-extrabold text=" gray/70">Doors open</span>
+              <span text-xs font-bold text="right gray/70">Doors open</span>
               <span text-sm>Today, 23:00</span>
             </div>
           </div>
 
-          <span text-xs font-extrabold text="left gray/70">PASS ID</span>
+          <span text-xs font-bold text="left gray/70">PASS ID</span>
           <span mb2 text-sm>EK2023091200010000</span>
         </div>
         <div h-20 w-20>
