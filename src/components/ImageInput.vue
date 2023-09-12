@@ -31,36 +31,39 @@ watch(file, async (image, _, onCleanup) => {
 </script>
 
 <template>
-  <label
-    class="bg-slate-500/10"
-    relative
-    flex
-    cursor-pointer
-    items-center
-    justify-center
-    of-hidden
-    rounded-2
-    border="gray/20 2"
-    w="sm:30 24"
-    h="sm:30 24"
-    min-w="sm:30 24"
-    @click="pickImage"
-  >
-    <img v-if="previewImage" :src="previewImage" h-full w-full object-cover />
-    <span
-      bg="black/50"
-      absolute
-      h12
-      w12
+  <div flex="~ col gap2" items-center>
+    <label
+      class="bg-slate-500/10"
+      relative
       flex
+      cursor-pointer
       items-center
       justify-center
+      of-hidden
       rounded-2
-      text-xl
-      text-white
-      hover="bg-black/40 text-primary"
+      border="gray/20 2"
+      w="sm:30 24"
+      h="sm:30 24"
+      min-w="sm:30 24"
+      @click="pickImage"
     >
-      <span i-ri:upload-2-line block />
-    </span>
-  </label>
+      <img v-if="previewImage" :src="previewImage" h-full w-full object-cover />
+      <span
+        bg="black/50"
+        absolute
+        h12
+        w12
+        flex
+        items-center
+        justify-center
+        rounded-2
+        text-xl
+        text-white
+        hover="bg-black/40 text-primary"
+      >
+        <span i-ri:upload-2-line block />
+      </span>
+    </label>
+    <span v-if="!file" op75>Choose your avatar</span>
+  </div>
 </template>

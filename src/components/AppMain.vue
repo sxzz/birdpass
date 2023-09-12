@@ -62,7 +62,7 @@ async function mint() {
     <div flex="~ col gap6" mb4 items-center>
       <ImageInput v-model="avatar" v-model:preview="previewAvatar" />
       <TextInput v-model="name" placeholder="What's your username?" />
-      <p op75>ℹ️ Support Safari on iOS only</p>
+      <p op75>ℹ️ Please open in Safari on iOS or macOS.</p>
       <button
         flex
         items-center
