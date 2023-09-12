@@ -10,13 +10,20 @@ const disabled = computed(() => !name.value || !avatar.value)
 async function mint() {
   if (disabled.value) return
 
-  // eslint-disable-next-line no-console
-  console.log({
-    name: name.value,
-    avatar: await fileToDataUrl(avatar.value!),
-  })
-  // eslint-disable-next-line no-alert
-  alert('WIP!')
+  const image = (await fileToDataUrl(avatar.value!)).slice(
+    'data:image/jpeg;base64,'.length
+  )
+  const res = await fetch('https://birdpass.qaq.wiki/sign', {
+    method: 'POST',
+    body: JSON.stringify({
+      username: name.value,
+      avatar: image,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  }).then((r) => r.json())
+
+  const link = `https://birdpass.qaq.wiki/pass?passid=${res.passid}`
+  location.href = link
 }
 </script>
 

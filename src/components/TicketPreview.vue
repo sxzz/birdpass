@@ -5,9 +5,9 @@ defineProps<{
   avatar?: string
 }>()
 
-const passId = 'EK2023091200010000'
+const passId = 'EK20230912XXXX'
 const qrcode =
-  '0c9a9274b6c561ead95159fc8af3c197ac0aa8b2970bb2099ec9b885aa0034bc'
+  '94d8ea7fc96cc1b54dba3d28fed42248ce357d8198c685a30a2f835b43c6882b'
 </script>
 
 <template>
