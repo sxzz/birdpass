@@ -1,17 +1,38 @@
 <script setup lang="ts">
 import QrcodeVue from 'qrcode.vue'
-defineProps<{
+import { OnClickOutside } from '@vueuse/components'
+
+const props = defineProps<{
   name?: string
   avatar?: string
+  passId?: string
 }>()
+const defaultPassId = 'EK20230912XXXX'
+const qrcode = ref('')
 
-const passId = 'EK20230912XXXX'
-const qrcode =
-  '94d8ea7fc96cc1b54dba3d28fed42248ce357d8198c685a30a2f835b43c6882b'
+watch(
+  () => props.passId,
+  async () => {
+    qrcode.value = await digestMessage(props.passId || defaultPassId)
+  },
+  { immediate: true }
+)
+
+async function digestMessage(message: string) {
+  const msgUint8 = new TextEncoder().encode(message)
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+  return hashHex
+}
+
+function togglePreview(v: boolean) {
+  showPreviewOnly.value = v
+}
 </script>
 
 <template>
-  <div>
+  <OnClickOutside @trigger="togglePreview(false)">
     <div
       bg="#1b2029"
       flex="~ col"
@@ -38,7 +59,7 @@ const qrcode =
       />
       <div flex justify-between>
         <div i-ri:apple-fill mb5 text-3xl text-white />
-        <h3 mb2 text="xs gray" font-bold>Preview</h3>
+        <h3 v-show="!passId" mb2 text="xs gray" font-bold>Preview</h3>
       </div>
 
       <div flex justify-between>
@@ -59,7 +80,7 @@ const qrcode =
           </div>
 
           <span text-xs font-bold text="left gray/70">PASS ID</span>
-          <span mb2 text-sm>{{ passId }}</span>
+          <span mb2 text-sm>{{ passId || defaultPassId }}</span>
         </div>
         <div h-20 w-20>
           <img v-if="avatar" :src="avatar" alt="Avatar" w-20 rounded-2 />
@@ -75,5 +96,8 @@ const qrcode =
         rounded
       />
     </div>
-  </div>
+    <button v-show="!showPreviewOnly" mt4 btn @click="togglePreview(true)">
+      Show preview only
+    </button>
+  </OnClickOutside>
 </template>

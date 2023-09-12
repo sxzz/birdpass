@@ -11,9 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/components": "^10.4.1",
     "@vueuse/core": "^10.1.2",
     "browser-fs-access": "^0.34.1",
     "compressorjs": "^1.2.1",
+    "file-saver": "^2.0.5",
     "qrcode.vue": "^3.4.1",
     "vue": "^3.3.4"
   },
@@ -22,6 +24,7 @@
     "@iconify-json/ri": "^1.1.12",
     "@sxzz/eslint-config": "^3.5.4",
     "@sxzz/prettier-config": "^1.0.4",
+    "@types/file-saver": "^2.0.5",
     "@types/node": "^20.2.5",
     "@unocss/reset": "^0.53.0",
     "@vitejs/plugin-vue": "^4.2.3",

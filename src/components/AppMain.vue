@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { type FileWithHandle } from 'browser-fs-access'
+import { saveAs } from 'file-saver'
 
 const name = useLocalStorage('name', '')
 const avatar = ref<FileWithHandle>()
 const previewAvatar = ref<string>()
 const loading = ref(false)
+const passId = ref<string>()
 
 const disabled = computed(() => loading.value || !name.value || !avatar.value)
 
@@ -25,9 +27,12 @@ async function mint() {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then((r) => r.json())
+    passId.value = res.passid
 
-    const link = `https://birdpass.qaq.wiki/pass?passid=${res.passid}`
-    location.href = link
+    const pass = await fetch(
+      `https://birdpass.qaq.wiki/pass?passid=${passId.value}`
+    ).then((r) => r.blob())
+    saveAs(pass, 'birdpass.pkpass')
   } catch {
     // eslint-disable-next-line no-alert
     alert('Failed to mint ticket')
@@ -38,7 +43,7 @@ async function mint() {
 </script>
 
 <template>
-  <div font-comfortaa>
+  <div v-show="!showPreviewOnly" font-comfortaa>
     <div flex items-center justify-between>
       <a
         rel="noreferrer"
@@ -71,9 +76,9 @@ async function mint() {
         <div v-if="loading" preserve-3d animate-spin>
           <div i-ri:loader-2-line />
         </div>
-        Mint
+        {{ loading ? 'Processing...' : 'Claim' }}
       </button>
     </div>
   </div>
-  <TicketPreview :name="name" :avatar="previewAvatar" />
+  <TicketPreview :name="name" :avatar="previewAvatar" :pass-id="passId" />
 </template>
