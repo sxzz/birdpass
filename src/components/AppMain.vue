@@ -80,5 +80,5 @@ async function mint() {
       </button>
     </div>
   </div>
-  <TicketPreview :name="name" :avatar="previewAvatar" :pass-id="passId" />
+  <TicketPreview :name="name" :avatar="previewAvatar" :pass-id="passId" mt10 />
 </template>

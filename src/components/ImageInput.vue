@@ -56,7 +56,7 @@ watch(file, async (image, _, onCleanup) => {
         flex
         items-center
         justify-center
-        rounded-2
+        rounded-full
         text-xl
         text-white
         hover="bg-black/40 text-primary"
